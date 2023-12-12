@@ -1,0 +1,16 @@
+{% extends 'shared/layout.html' %}
+
+{% block maincontent %}
+
+    <div class="process_feedback">
+        <h1 class="feedback_welcome">Thanks for the feedback on the game. Here's what others Wordlers had to say!</h1>
+        <ul class="feedback_list">
+            {% for id,feedback in feedback_data.items() %}
+                <li>
+                    <p>{{ feedback['name'] }} said : {{ feedback['comment'] }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='feedback/css/feedback.css') }}">
+{% endblock %}

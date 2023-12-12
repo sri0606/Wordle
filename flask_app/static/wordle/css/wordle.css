@@ -1,0 +1,156 @@
+
+.wordle-game{
+    width:100vw;
+    margin-left: -4vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.row{
+    width:98%;
+    max-height:10vh;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom:1%;
+}
+.cell {
+    background-color: black;
+    color: rgb(255, 255, 255);
+    margin-left: 0.5vw;
+    font-size: 3vw;
+    font-weight: 2vw;
+    text-align: center;
+    border-radius: 10%;
+    width: 5vw;
+    height: 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.leaderboard {
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    width: 50vw;
+    margin-left: 26.5vw;
+    justify-content: center;
+    width: 40vw;
+    text-align: center;
+    background-color: rgb(99, 238, 19);
+    border-radius: 2vw;
+    align-items: center;
+}
+.word-of-day {
+    width: 60%;
+    text-align: center;
+    font-size: 2.5em;
+    color: #5f1111; 
+    background-color: #f2f2f2;
+    padding: 2%;
+    border-radius: 2vw;
+    margin-top:-0.1vh;
+    box-shadow: 0 0 8vw rgba(0, 0, 0, 0.3);
+    margin-left:15%;
+}
+.game-status{
+    text-align: center;
+    color: #584c4c;
+    font-size:1.3em;
+}
+
+.leaderboard-table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 2vh;
+    margin-left:10%;
+    margin-right: 10%;
+    margin-bottom:4vh;
+    justify-content: center;
+}
+
+.table-header-cell, .table-data-cell {
+    border: 1px solid #693434;
+    padding: 8px;
+    text-align: center;
+    overflow-x: hidden;
+    width:5%;
+    background-color: #f2f2f2;
+}
+
+.table-header-cell {
+    background-color: #c2e46d;
+}
+
+.keyboard-container {
+    margin-top: 2%;
+    margin-left:25vw;
+    background-color: darkorange;
+    width:43vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 2vw;
+}
+.kb-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width:40vw;
+    margin-bottom: 1%;
+    margin-top: 1%;
+    align-content: center;
+    margin-left:1vw;
+    margin-right:1vw;
+}
+.kb-button {
+    margin-left:0.5vw ;
+    padding: 2% 2% 2% 2%;
+    font-size: 2vw;
+    width:3vw;
+    height:3vw;
+    cursor: pointer;
+    background-color:gray;
+    text-align: center;
+    border-radius: 2vw;
+}
+.kb-special-button{
+    width:10vw;
+}
+
+.spelling-alert {
+    position: fixed;
+    left:40vw;
+    top: 27vh;
+    background-color: #f44336;
+    color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    display: none;
+  }
+  
+
+@media only screen and (max-width: 750px) {
+    .wordle-game{
+        width:100vw;
+        margin-left: 4vw;
+        
+    }
+    .leaderboard {
+        width:60vw;
+        margin-left: 20vw;
+    }
+    .row{
+        width:98%;
+        max-height:10vh;
+    }
+    .cell{
+        width:8vh;
+        height:8vh;
+    }
+    .keyboard-container {
+        margin-top: 2%;
+        margin-left:30vw;
+    }
+}

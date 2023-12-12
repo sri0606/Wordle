@@ -1,0 +1,132 @@
+/* Navbar styles */
+.navbar {
+    background-color: #444;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 15vh;
+    width: 100%;
+}
+
+.navbar-left {
+    flex-grow: 1;
+    margin-left: 5vw;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    margin-right: 5vw;
+}
+
+
+.navbar-link {
+    color: white;
+    text-decoration: none;
+    margin-left: 3vw;
+    transition: opacity 0.3s;
+}
+
+.navbar-link:hover {
+    opacity: 0.5;
+}
+
+/* mobile responsiveness */
+@media (max-width: 650px) {
+    .navbar-link {
+        display: none;
+    }
+
+    .navbar #menu-bar {
+        display: block;
+        cursor: pointer;
+    }
+
+    .navbar #linkedin-link {
+        display: none;
+    }
+
+    .navbar.active a {
+        display: block;
+    }
+
+    .navbar.active #menu-bar {
+        display: none;
+    }
+
+    .navbar.active #linkedin-text {
+        display: block;
+    }
+}
+
+.linkedin-image {
+    width: 3vw; 
+    height: auto; 
+}
+.menu-image {
+    width: 5vw; 
+    height: auto; 
+}
+
+/* Hide the menu button for screens 650px and wider */
+@media (min-width: 651px) {
+    #menu-button {
+        display: none;
+    }
+}
+/* Show the mobile menu (initially hidden) for screens less than 650px */
+@media (max-width: 650px) {
+    #linkedin-link {
+        display: none;
+    }
+    #menu-button {
+        display: inline-block;
+    }
+    #dropdown-content {
+        display: none !important;
+    }
+}
+
+.menu-button {
+    background-color: #444;
+    color: white;
+    padding: 5vw;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Dropdown button on hover & focus */
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #111111;
+    min-width: 30vh;
+    z-index: 1;
+    right:0;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-nav-link {
+    color: rgb(226, 217, 217);
+    padding: 3vw 3vh;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-nav-link:hover {background-color: #312f2f;}
+  
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+  .show {display:block;}

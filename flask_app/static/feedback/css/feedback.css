@@ -1,0 +1,71 @@
+/* Style for the feedback button */
+.feedback-toggle {
+    position: fixed;
+    top: 50%; 
+    right: -3%;
+    transform: rotateZ(90deg);
+    background-color: #007bff; 
+    color: #fff;
+    border: none;
+    border-radius: 2vh;
+    padding: 0.8% 1.2%;
+    cursor: pointer;
+}
+
+/* Style for the feedback form container */
+.feedback-form {
+    display: none;
+    position: fixed;
+    top: 25%;
+    left: 35%;
+    width: 40%;
+    height: 100%;
+    z-index: 10;
+    text-align: center; 
+}
+
+/* Style for the feedback form itself */
+.feedback-form form {
+    background: #131010;
+    width: 80%; 
+    height:40%;
+    margin: 10% auto; /* Center the form vertically and horizontally */
+    border-radius: 3%;
+    padding: 6%;
+}
+
+/*text input and textarea styles */
+.feedback-form input[type="text"],
+.feedback-form input[type="email"],
+.feedback-form textarea {
+    width: 100%;
+    padding: 4%;
+    margin-bottom: 1%;
+    border: 1% solid #ccc;
+    box-sizing: border-box;
+}
+.feedback-form textarea {
+    height: 40%;
+    resize: vertical; /* Allow vertical resizing */
+    margin-bottom: 2%;
+}
+.feedback-form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 2vh;
+    padding: 3% 6%;
+    cursor: pointer;
+}
+.process_feedback{
+    width:100%;
+}
+.feedback_welcome{
+    font-size: 4vh;
+    text-align: center;
+    margin-top: -5%;
+}
+
+.feedback_list{
+    font-size: 2.9vh;
+}

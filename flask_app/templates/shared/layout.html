@@ -1,0 +1,133 @@
+
+<!-- FILL ME IN WITH CODE FOR YOUR PAGE LAYOUT -->
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sriram Seelamneni's Wordle game</title>
+  <link rel="stylesheet"    href="{{ url_for('static', filename='main/css/main.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='main/css/header.css') }}">
+  <link rel="stylesheet"    href="{{ url_for('static', filename='main/css/navbar.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='main/css/footer.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='feedback/css/feedback.css') }}">
+  {% block extracss %}{% endblock %}
+  <script src="{{ url_for('static', filename='main/js/navbar.js') }}" defer></script>
+  <script src="{{ url_for('static', filename='feedback/js/feedback.js') }}" defer></script>
+  <script src="{{ url_for('static', filename='main/js/main.js') }}" defer></script>
+  {% block extrajs %}{% endblock %}
+</head>
+
+<body class="body">
+    <article>
+    <!-- The header  -->
+    <header class="header">
+        
+    </header>
+
+    <!-- The navigation bar -->
+    <nav class="navbar">
+      <div class="navbar-left">
+        {% if 'email' in session %}
+          <span class="assignment-name">Welcome {{ user }}!</span>
+        {% else %}
+          <span class="assignment-name">Wanna Wordle?</span>
+        {% endif %}
+      </div>
+      <div class="navbar-right">
+          <a href="{{ url_for('home') }}" class="navbar-link">Home</a>
+          {% if 'email' in session %}
+            <a href="{{ url_for('logout') }}" class="navbar-link">Logout</a>
+          {% else %}
+            <a href="{{ url_for('login') }}" class="navbar-link">Login</a>
+            <a href="{{ url_for('signup') }}" class="navbar-link">SignUp</a>
+          {% endif %}
+          
+          <button class="how-to-play" onClick="howToPlayClick()">How to Play</button>
+          <!-- dropdown menu for mobile interactivity -->
+          <div class="dropdown">
+              <button onclick="OnClick()" class="menu-button" id = "menu-button">
+                  <img src="{{ url_for('static', filename='main/images/menu-bar.png') }}" class="menu-image" alt="Menu" loading="lazy">
+                  
+              </button>
+              <div id="myDropdown" class="dropdown-content">
+                  <a href="{{ url_for('home') }}" class="dropdown-nav-link">Home</a>
+      
+                  {% if 'email' in session %}
+                    <a href="{{ url_for('logout') }}" class="dropdown-nav-link">Logout</a>
+                  {% else %}
+                    <a href="{{ url_for('login') }}" class="dropdown-nav-link">Login</a>
+                    <a href="{{ url_for('signup') }}" class="dropdown-nav-link">SignUp</a>
+                  {% endif %}
+
+                  <button class="how-to-play" onClick="howToPlayClick()">How to Play</button>
+              </div>
+          </div>
+
+      </div>
+    </nav>
+
+    <!-- The main content  -->
+    <main class="main">
+      <div id="feedback-form" class="feedback-form">
+        <form action="{{ url_for('processfeedback') }}" method="POST" enctype="multipart/form-data">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="comment" placeholder="Comment" required></textarea>
+            <button type="submit" name="submit">Submit</button>
+        </form>
+      </div>    
+      <button id="feedback-toggle" class="feedback-toggle">Give Feedback</button>
+      <div id="instructionsPopup" class="instructions-popup">
+        <div class="instructions-popup-content">
+            <h2>Instructions</h2>
+            <hr>
+            <p>Unlike other Wordle games, this creative version features a variable number of letters in the word each day.</p>
+            <p>You have as many guesses as the number of letters in the "Word of the Day". For example, if today's word is "Javascript", you get 10 guesses to crack the Wordle!</p>
+            <p>Make sure the spelling is correct and Hit Enter to submit your guess.</p>
+
+            <p>You must be logged in to play.</p>
+        
+            <h3>Color Hints</h3>
+            <p>Color hints will be revealed after each guess. You can use following cell color hints to solve the wordle:</p>
+            <ul>
+                <li><strong>Grey:</strong> The character does not appear anywhere in the hidden word.</li>
+                <li><strong>Yellow:</strong> The guessed character is correct but in the wrong position.</li>
+                <li><strong>Green:</strong> The guessed character is correct and in the correct position.</li>
+            </ul>
+        
+            <hr>
+            <p>A new Wordle will be available each day! Enjoy :)</p>
+        
+            <button class="close-popup" onclick="closeInstructionsPopup()">Close</button>
+        </div>
+        
+      </div>
+
+      
+      {% block maincontent %}{% endblock %}
+
+   
+    </main>
+
+    <!-- The footer of the file -->
+    <footer class="footer">
+      <p>&copy; Sriram Seelamneni</p>
+    </footer>
+
+    </article>
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# Docker
+.docker/
+# docker-compose.yml
+docker-compose.override.yml
+# Dockerfile
+docker-debug.log
+
+# Flask
+instance/
+.webassets-cache
+
+# SQLite database files
+*.db
+
+# macOS
+.DS_Store
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Logs and databases #
+######################
+*.log
+# *.sql
+*.sqlite
+*.sqlite3
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+*.env

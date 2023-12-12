@@ -1,0 +1,96 @@
+{% extends 'shared/layout.html' %}
+
+{% block extrajs %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{% endblock %}
+{% block maincontent %}
+  <!-- IF USER IS NOT LOGGED IN -->
+
+  {% if 'email' not in session %}
+  <div class="content-col-home">
+      <img src="{{ url_for('static', filename='main/images/wordle.jpeg') }}" class="wordle-image" alt="Wordle" loading="lazy">
+      <div class="howto-signup-buttons">
+        <button class="how-to-play" onClick="howToPlayClick()">How to Play</button>
+        <button class="play" onclick="playWordle()">Play</button>
+        <button class="signup" onclick="signUp()">Sign Up</button>
+      </div>
+  </div>
+
+  <!--  IF USER IS LOGGED IN -->
+
+  {% else %}
+
+  <!-- <h1>Wordle! Wordle!</h1> -->
+  <div id="spelling-alert" class="spelling-alert"></div>
+
+    <div class="wordle-game" id="wordleGame">
+    </div>
+
+    <!-- Daily Leader Board -->
+    <div class="leaderboard" id="leaderboard">
+        <p class="game-status" id="gameStatus"></p>
+        <h2 class="word-of-day" id="wordOfDay"></h2>
+        
+        <h2>Today's Leaderboard</h2>
+        <table id="leaderboardTable" class="leaderboard-table">
+            <thead class="table-header-cell">
+                <tr>
+                    <th>Username</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody id="leaderboardBody">
+                <!-- Table body content dynamically updatd -->
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- Keyboard -->
+  <div class="keyboard-container" id="keyboardContainer">
+    <div class="kb-row">
+        <div class="kb-button">Q</div>
+        <div class="kb-button">W</div>
+        <div class="kb-button">E</div>
+        <div class="kb-button">R</div>
+        <div class="kb-button">T</div>
+        <div class="kb-button">Y</div>
+        <div class="kb-button">U</div>
+        <div class="kb-button">I</div>
+        <div class="kb-button">O</div>
+        <div class="kb-button">P</div>
+    </div>
+    <div class="kb-row">
+        <div class="kb-button">A</div>
+        <div class="kb-button">S</div>
+        <div class="kb-button">D</div>
+        <div class="kb-button">F</div>
+        <div class="kb-button">G</div>
+        <div class="kb-button">H</div>
+        <div class="kb-button">J</div>
+        <div class="kb-button">K</div>
+        <div class="kb-button">L</div>
+    </div>
+    <div class="kb-row">
+        <div class="kb-button">Z</div>
+        <div class="kb-button">X</div>
+        <div class="kb-button">C</div>
+        <div class="kb-button">V</div>
+        <div class="kb-button">B</div>
+        <div class="kb-button">N</div>
+        <div class="kb-button">M</div>
+    </div>
+    <div class="kb-row">
+        <div class="kb-special-button kb-button">Delete</div>
+        <div class="kb-special-button kb-button">Enter</div>
+    </div>
+  </div>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='wordle/css/wordle.css') }}">
+
+    <script src="{{ url_for('static', filename='wordle/js/wordle.js') }}"></script>
+  {% endif %}
+
+<hr>
+
+{% endblock %}
+
+

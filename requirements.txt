@@ -1,0 +1,9 @@
+flask
+requests==2.26.0
+gunicorn
+cryptography
+eventlet==0.30.2
+Flask-Failsafe
+mysql-connector-python
+beautifulsoup4
+python-dotenv
